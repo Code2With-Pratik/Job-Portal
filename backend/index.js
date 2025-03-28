@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: "https://job-portal-y5hr.onrender.com", // Frontend origin
+  origin: "https://job-portal-0q1t.onrender.com", // Frontend origin
   credentials: true, // Allow cookies with CORS
 };
 app.use(cors(corsOptions));
