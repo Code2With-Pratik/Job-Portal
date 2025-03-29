@@ -148,9 +148,9 @@ const MockInterview = () => {
   };
 
   const getGreeting = () => {
-    if (score < 5) return "Work Hard";
-    if (score >= 5 && score < 8) return "Good";
-    return "Excellent";
+    if (score < 5) return "Work Hard👎!";
+    if (score >= 5 && score < 8) return "Good 🙂!";
+    return "Excellent👍!";
   };
 
   const handleRestart = () => {
@@ -239,7 +239,7 @@ const MockInterview = () => {
                     value={option}
                     checked={selectedAnswer === option}
                     onChange={() => setSelectedAnswer(option)}
-                    className="mr-2"
+                    className="mr-2 accent-purple-600"
                   />
                   {option}
                 </label>
@@ -331,7 +331,6 @@ const MockInterview = () => {
           </div>
         )}
       </div>
-
       <Footer/>
     </div>
   );
