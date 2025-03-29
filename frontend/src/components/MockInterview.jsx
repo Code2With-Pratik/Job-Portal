@@ -338,4 +338,3 @@ const MockInterview = () => {
 };
 
 export default MockInterview;
-
