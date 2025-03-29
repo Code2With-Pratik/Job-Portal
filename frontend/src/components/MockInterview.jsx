@@ -239,10 +239,18 @@ const MockInterview = () => {
               ))}
             </div>
             <div className="flex justify-between items-center mb-4">
+              <button
+                className="bg-gray-500 text-white p-2 rounded"
+                onClick={handleBack}
+                disabled={currentQuestion === 0}
+              >
+                Back
+              </button>
               <span className="text-lg font-semibold">Time Left: {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, '0')}</span>
               <button
                 className="bg-purple-700 text-white p-2 rounded"
                 onClick={handleNext}
+                disabled={!selectedAnswer}
               >
                 Next
               </button>
@@ -252,8 +260,15 @@ const MockInterview = () => {
         {showResults && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
             <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-4xl max-h-[500px] overflow-y-auto">
-              <h2 className="text-2xl font-bold mb-4">Your Score: {score}/{demoQuestions[role].length}</h2>
-              <h3 className="text-lg font-semibold mb-4">{getGreeting()}</h3>
+              <h2 className="text-2xl font-bold mb-4">
+                Your Score: {score}/{demoQuestions[role].length}
+              </h2>
+              <h3 className={`
+                text-2xl sm:text-3xl font-bold mb-4 
+                ${score < 5 ? "text-red-500" : score === 5 ? "text-yellow-500" : "text-green-500"}
+              `}>
+                {getGreeting()}
+              </h3>
               <div className="mb-4">
                 <h4 className="font-semibold">Score Visualization:</h4>
                 <div className="flex">
@@ -261,8 +276,8 @@ const MockInterview = () => {
                   <div className="bg-red-500" style={{ width: `${((demoQuestions[role].length - score) / demoQuestions[role].length) * 100}%`, height: '20px' }}></div>
                 </div>
               </div>
-              <table className="min-w-full border-collapse border border-gray-300">
-                <thead>
+              <table className="min-w-full border-collapse border border-gray-300 mt-4">
+                <thead className="bg-gray-200">
                   <tr>
                     <th className="border border-gray-300 p-2">Question</th>
                     <th className="border border-gray-300 p-2">Your Answer</th>
@@ -271,16 +286,22 @@ const MockInterview = () => {
                 </thead>
                 <tbody>
                   {answers.map((ans, index) => (
-                    <tr key={index} className={ans.selected === ans.correct ? "bg-green-200" : "bg-red-200"}>
-                      <td className="border border-gray-300 p-2">{ans.question}</td>
-                      <td className="border border-gray-300 p-2">{ans.selected}</td>
-                      <td className="border border-gray-300 p-2">{ans.correct}</td>
+                    <tr key={index} className="border border-gray-300">
+                      <td className="border border-gray-300 p-2 text-black font-medium">
+                        {ans.question}
+                      </td>
+                      <td className={`border border-gray-300 p-2 ${ans.selected === ans.correct ? "text-green-500 font-semibold" : "text-red-500 font-semibold"}`}>
+                        {ans.selected}
+                      </td>
+                      <td className="border border-gray-300 p-2 text-black font-semibold">
+                        {ans.correct}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
               <button
-                className="bg-purple-800 text-white p-2 rounded w-full mt-4"
+                className="bg-purple-800 text-white p-2 rounded w-full mt-4 hover:bg-purple-900 transition"
                 onClick={handleRestart}
               >
                 Restart
