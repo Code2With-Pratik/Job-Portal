@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./shared/Navbar";
 import Footer from "./shared/Footer";
@@ -89,7 +89,20 @@ const MockInterview = () => {
   const [answers, setAnswers] = useState([]);
   const [interviewStarted, setInterviewStarted] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [timer, setTimer] = useState(120); // two minutes in seconds
   const navigate = useNavigate();
+
+  useEffect(() => {
+    let interval = null;
+    if (interviewStarted && timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+    } else if (timer === 0) {
+      handleNext();
+    }
+    return () => clearInterval(interval);
+  }, [interviewStarted, timer]);
 
   const handleSkillChange = (skill) => {
     setSelectedSkills((prevSkills) =>
@@ -143,6 +156,7 @@ const MockInterview = () => {
     setAnswers([]);
     setInterviewStarted(false);
     setShowResults(false);
+    setTimer(120);
   };
 
   return (
@@ -222,19 +236,29 @@ const MockInterview = () => {
                 </label>
               ))}
             </div>
-            <button
-              className="bg-green-500 text-white p-2 rounded w-full mt-4"
-              onClick={handleNext}
-            >
-              Next
-            </button>
+            <div className="flex justify-between items-center mb-4">
+              <span className="text-lg font-semibold">Time Left: {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, '0')}</span>
+              <button
+                className="bg-green-500 text-white p-2 rounded"
+                onClick={handleNext}
+              >
+                Next
+              </button>
+            </div>
           </>
         )}
         {showResults && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl">
-              <h2 className="text-2xl font-bold mb-4 ">Your Score: {score}/10</h2>
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
+            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
+              <h2 className="text-2xl font-bold mb-4">Your Score: {score}/{demoQuestions[role].length}</h2>
               <h3 className="text-lg font-semibold mb-4">{getGreeting()}</h3>
+              <div className="mb-4">
+                <h4 className="font-semibold">Score Visualization:</h4>
+                <div className="flex">
+                  <div className="bg-green-500" style={{ width: `${(score / demoQuestions[role].length) * 100}%`, height: '20px' }}></div>
+                  <div className="bg-red-500" style={{ width: `${((demoQuestions[role].length - score) / demoQuestions[role].length) * 100}%`, height: '20px' }}></div>
+                </div>
+              </div>
               <table className="min-w-full border-collapse border border-gray-300">
                 <thead>
                   <tr>
@@ -245,7 +269,7 @@ const MockInterview = () => {
                 </thead>
                 <tbody>
                   {answers.map((ans, index) => (
-                    <tr key={index}>
+                    <tr key={index} className={ans.selected === ans.correct ? "bg-green-200" : "bg-red-200"}>
                       <td className="border border-gray-300 p-2">{ans.question}</td>
                       <td className="border border-gray-300 p-2">{ans.selected}</td>
                       <td className="border border-gray-300 p-2">{ans.correct}</td>
