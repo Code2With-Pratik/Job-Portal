@@ -160,12 +160,12 @@ const MockInterview = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+    <div>
       <Navbar />
-      <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-2xl">
+      <div className="bg-white shadow-[0px_10px_30px_rgba(0,0,0,0.3)] rounded-lg p-10 w-full max-w-3xl mx-auto mt-20">
         {!interviewStarted ? (
           <>
-            <h2 className="text-2xl font-bold mb-4">Start Your Mock Interview</h2>
+            <h2 className="text-3xl font-bold mb-5 mx-32">Start Your Mock Interview</h2>
             <label className="block text-lg font-semibold mb-2">Select Role:</label>
             <select
               className="w-full p-2 mb-4 border rounded"
@@ -212,7 +212,7 @@ const MockInterview = () => {
               ))}
             </select>
             <button
-              className="bg-purple-600 text-white p-2 rounded w-full"
+              className="bg-purple-800 text-white p-2 rounded w-full"
               onClick={handleStart}
             >
               Start Interview
@@ -220,7 +220,9 @@ const MockInterview = () => {
           </>
         ) : (
           <>
-            <h2 className="text-2xl font-bold mb-4">Interview Question</h2>
+            <h2 className="text-2xl font-bold mb-4">
+              Question {currentQuestion + 1}:
+            </h2>
             <p className="mb-4">{demoQuestions[role][currentQuestion]?.question}</p>
             <div className="mb-4">
               {demoQuestions[role][currentQuestion]?.options.map((option, index) => (
@@ -287,7 +289,7 @@ const MockInterview = () => {
           </div>
         )}
       </div>
-      <Footer />
+      <Footer className="bg-gray-800 text-white p-4 w-full fixed bottom-0 left-0><Footer/>
     </div>
   );
 };
