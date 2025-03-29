@@ -251,7 +251,7 @@ const MockInterview = () => {
         )}
         {showResults && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
-            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
+            <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-4xl max-h-[500px] overflow-y-auto">
               <h2 className="text-2xl font-bold mb-4">Your Score: {score}/{demoQuestions[role].length}</h2>
               <h3 className="text-lg font-semibold mb-4">{getGreeting()}</h3>
               <div className="mb-4">
