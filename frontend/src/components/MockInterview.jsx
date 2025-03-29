@@ -190,7 +190,7 @@ const MockInterview = () => {
                         value={skill}
                         checked={selectedSkills.includes(skill)}
                         onChange={() => handleSkillChange(skill)}
-                        className="mr-2"
+                        className="mr-2 accent-purple-600"
                       />
                       {skill}
                     </label>
@@ -241,7 +241,7 @@ const MockInterview = () => {
             <div className="flex justify-between items-center mb-4">
               <span className="text-lg font-semibold">Time Left: {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, '0')}</span>
               <button
-                className="bg-green-500 text-white p-2 rounded"
+                className="bg-purple-700 text-white p-2 rounded"
                 onClick={handleNext}
               >
                 Next
@@ -280,7 +280,7 @@ const MockInterview = () => {
                 </tbody>
               </table>
               <button
-                className="bg-blue-500 text-white p-2 rounded w-full mt-4"
+                className="bg-purple-800 text-white p-2 rounded w-full mt-4"
                 onClick={handleRestart}
               >
                 Restart
