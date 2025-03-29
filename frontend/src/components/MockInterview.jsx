@@ -120,6 +120,13 @@ const MockInterview = () => {
     setInterviewStarted(true);
   };
 
+  const handleBack = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion((prev) => prev - 1);
+      setSelectedAnswer(null);
+    }
+  };  
+
   const handleNext = () => {
     if (selectedAnswer) {
       const correctAnswer = demoQuestions[role][currentQuestion].answer;
@@ -246,7 +253,9 @@ const MockInterview = () => {
               >
                 Back
               </button>
-              <span className="text-lg font-semibold">Time Left: {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, '0')}</span>
+              <span className="text-lg font-semibold">
+                Time Left: {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, "0")}
+              </span>
               <button
                 className="bg-purple-700 text-white p-2 rounded"
                 onClick={handleNext}
@@ -263,17 +272,25 @@ const MockInterview = () => {
               <h2 className="text-2xl font-bold mb-4">
                 Your Score: {score}/{demoQuestions[role].length}
               </h2>
-              <h3 className={`
-                text-2xl sm:text-3xl font-bold mb-4 
-                ${score < 5 ? "text-red-500" : score === 5 ? "text-yellow-500" : "text-green-500"}
-              `}>
+              <h3
+                className={`
+                  text-2xl sm:text-3xl font-bold mb-4 
+                  ${score < 5 ? "text-red-500" : score === 5 ? "text-yellow-500" : "text-green-500"}
+                `}
+              >
                 {getGreeting()}
               </h3>
               <div className="mb-4">
                 <h4 className="font-semibold">Score Visualization:</h4>
                 <div className="flex">
-                  <div className="bg-green-500" style={{ width: `${(score / demoQuestions[role].length) * 100}%`, height: '20px' }}></div>
-                  <div className="bg-red-500" style={{ width: `${((demoQuestions[role].length - score) / demoQuestions[role].length) * 100}%`, height: '20px' }}></div>
+                  <div
+                    className="bg-green-500"
+                    style={{ width: `${(score / demoQuestions[role].length) * 100}%`, height: "20px" }}
+                  ></div>
+                  <div
+                    className="bg-red-500"
+                    style={{ width: `${((demoQuestions[role].length - score) / demoQuestions[role].length) * 100}%`, height: "20px" }}
+                  ></div>
                 </div>
               </div>
               <table className="min-w-full border-collapse border border-gray-300 mt-4">
@@ -290,7 +307,11 @@ const MockInterview = () => {
                       <td className="border border-gray-300 p-2 text-black font-medium">
                         {ans.question}
                       </td>
-                      <td className={`border border-gray-300 p-2 ${ans.selected === ans.correct ? "text-green-500 font-semibold" : "text-red-500 font-semibold"}`}>
+                      <td
+                        className={`border border-gray-300 p-2 ${
+                          ans.selected === ans.correct ? "text-green-500 font-semibold" : "text-red-500 font-semibold"
+                        }`}
+                      >
                         {ans.selected}
                       </td>
                       <td className="border border-gray-300 p-2 text-black font-semibold">
@@ -310,6 +331,7 @@ const MockInterview = () => {
           </div>
         )}
       </div>
+
       <Footer/>
     </div>
   );
