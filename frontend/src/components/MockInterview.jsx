@@ -289,7 +289,7 @@ const MockInterview = () => {
           </div>
         )}
       </div>
-      <Footer className="bg-gray-800 text-white p-4 w-full fixed bottom-0 left-0><Footer/>
+      <Footer/>
     </div>
   );
 };
