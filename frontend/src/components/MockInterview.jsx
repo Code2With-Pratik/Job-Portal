@@ -3,7 +3,15 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./shared/Navbar";
 import Footer from "./shared/Footer";
 
-const roles = ["Frontend Developer", "Backend Developer", "Full Stack Developer", "Data Analyst", "Cybersecurity", "App Developer"];
+const roles = [
+  "Frontend Developer",
+  "Backend Developer",
+  "Full Stack Developer",
+  "Data Analyst",
+  "Cybersecurity",
+  "App Developer",
+];
+
 const skills = {
   "Frontend Developer": ["React", "Vue", "Angular"],
   "Backend Developer": ["Node.js", "Django", "Spring Boot"],
@@ -12,17 +20,63 @@ const skills = {
   "Cybersecurity": ["Ethical Hacking", "Pen Testing"],
   "App Developer": ["Flutter", "React Native"],
 };
+
 const experiences = ["Fresher", "1 Year", "2 Years", "3+ Years"];
 
-const questionsData = {
+const demoQuestions = {
   "Frontend Developer": [
-    { question: "Which is a JavaScript framework?", options: ["React", "Laravel", "Django", "Flask"], answer: "React" },
-    { question: "Which is used for CSS styling?", options: ["Bootstrap", "Node.js", "Django", "Express"], answer: "Bootstrap" },
+    {
+      question: "What is React?",
+      options: ["A JavaScript library for building user interfaces.", "A CSS framework.", "A backend framework.", "A database."],
+      answer: "A JavaScript library for building user interfaces.",
+    },
+    {
+      question: "What is JSX?",
+      options: ["A syntax extension for JavaScript.", "A JavaScript library.", "A CSS preprocessor.", "A database."],
+      answer: "A syntax extension for JavaScript.",
+    },
+    {
+      question: "What are props in React?",
+      options: ["Inputs to components.", "State variables.", "Functions.", "Styles."],
+      answer: "Inputs to components.",
+    },
+    {
+      question: "What is state in React?",
+      options: ["A built-in object that stores property values.", "A CSS property.", "A JavaScript function.", "A component."],
+      answer: "A built-in object that stores property values.",
+    },
+    {
+      question: "What is a component in React?",
+      options: ["A reusable piece of UI.", "A JavaScript variable.", "A CSS class.", "A database."],
+      answer: "A reusable piece of UI.",
+    },
+    {
+      question: "What is the virtual DOM?",
+      options: ["A lightweight copy of the actual DOM.", "A CSS framework.", "A JavaScript library.", "A database."],
+      answer: "A lightweight copy of the actual DOM.",
+    },
+    {
+      question: "What is a hook in React?",
+      options: ["Functions that let you use state and other React features.", "A CSS property.", "A JavaScript variable.", "A database."],
+      answer: "Functions that let you use state and other React features.",
+    },
+    {
+      question: "What is Redux?",
+      options: ["A state management library for JavaScript apps.", "A CSS framework.", "A JavaScript library.", "A database."],
+      answer: "A state management library for JavaScript apps.",
+    },
+    {
+      question: "What is a higher-order component?",
+      options: ["A function that takes a component and returns a new component.", "A CSS class.", "A JavaScript variable.", "A database."],
+      answer: "A function that takes a component and returns a new component.",
+    },
+    {
+      question: "What is the purpose of useEffect?",
+      options: ["To perform side effects in function components.", "To manage state.", "To style components.", "To create components."],
+      answer: "To perform side effects in function components.",
+    },
   ],
-  "Backend Developer": [
-    { question: "Which backend framework is based on JavaScript?", options: ["Node.js", "Django", "Spring Boot", "Flask"], answer: "Node.js" },
-    { question: "Which database is NoSQL?", options: ["MongoDB", "MySQL", "PostgreSQL", "SQLite"], answer: "MongoDB" },
-  ],
+  // Add demo questions for other roles as needed
 };
 
 const MockInterview = () => {
@@ -30,15 +84,18 @@ const MockInterview = () => {
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [experience, setExperience] = useState("");
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState("");
   const [score, setScore] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [interviewStarted, setInterviewStarted] = useState(false);
+  const [showResults, setShowResults] = useState(false);
   const navigate = useNavigate();
 
   const handleSkillChange = (skill) => {
     setSelectedSkills((prevSkills) =>
-      prevSkills.includes(skill) ? prevSkills.filter((s) => s !== skill) : [...prevSkills, skill]
+      prevSkills.includes(skill)
+        ? prevSkills.filter((s) => s !== skill)
+        : [...prevSkills, skill]
     );
   };
 
@@ -51,19 +108,41 @@ const MockInterview = () => {
   };
 
   const handleNext = () => {
-    if (selectedAnswer !== null) {
-      const correctAnswer = questionsData[role][currentQuestion].answer;
-      setAnswers([...answers, { ...questionsData[role][currentQuestion], selected: selectedAnswer }]);
+    if (selectedAnswer) {
+      const correctAnswer = demoQuestions[role][currentQuestion].answer;
+      setAnswers((prev) => [
+        ...prev,
+        { question: demoQuestions[role][currentQuestion].question, selected: selectedAnswer, correct: correctAnswer },
+      ]);
       if (selectedAnswer === correctAnswer) {
         setScore(score + 1);
       }
     }
-    setSelectedAnswer(null);
-    if (currentQuestion < questionsData[role].length - 1) {
+    setSelectedAnswer("");
+    if (currentQuestion < demoQuestions[role].length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setInterviewStarted(false);
+      setShowResults(true);
     }
+  };
+
+  const getGreeting = () => {
+    if (score < 5) return "Work Hard";
+    if (score >= 5 && score < 8) return "Good";
+    return "Excellent";
+  };
+
+  const handleRestart = () => {
+    setRole("");
+    setSelectedSkills([]);
+    setExperience("");
+    setCurrentQuestion(0);
+    setSelectedAnswer("");
+    setScore(0);
+    setAnswers([]);
+    setInterviewStarted(false);
+    setShowResults(false);
   };
 
   return (
@@ -74,10 +153,16 @@ const MockInterview = () => {
           <>
             <h2 className="text-2xl font-bold mb-4">Start Your Mock Interview</h2>
             <label className="block text-lg font-semibold mb-2">Select Role:</label>
-            <select className="w-full p-2 mb-4 border rounded" value={role} onChange={(e) => setRole(e.target.value)}>
+            <select
+              className="w-full p-2 mb-4 border rounded"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+            >
               <option value="">Select Role</option>
               {roles.map((r) => (
-                <option key={r} value={r}>{r}</option>
+                <option key={r} value={r}>
+                  {r}
+                </option>
               ))}
             </select>
             {role && (
@@ -86,7 +171,13 @@ const MockInterview = () => {
                 <div className="grid grid-cols-2 gap-2 mb-4">
                   {skills[role]?.map((skill) => (
                     <label key={skill} className="flex items-center">
-                      <input type="checkbox" value={skill} checked={selectedSkills.includes(skill)} onChange={() => handleSkillChange(skill)} className="mr-2" />
+                      <input
+                        type="checkbox"
+                        value={skill}
+                        checked={selectedSkills.includes(skill)}
+                        onChange={() => handleSkillChange(skill)}
+                        className="mr-2"
+                      />
                       {skill}
                     </label>
                   ))}
@@ -94,40 +185,81 @@ const MockInterview = () => {
               </>
             )}
             <label className="block text-lg font-semibold mb-2">Select Experience:</label>
-            <select className="w-full p-2 mb-4 border rounded" value={experience} onChange={(e) => setExperience(e.target.value)}>
+            <select
+              className="w-full p-2 mb-4 border rounded"
+              value={experience}
+              onChange={(e) => setExperience(e.target.value)}
+            >
               <option value="">Select Experience</option>
               {experiences.map((exp) => (
-                <option key={exp} value={exp}>{exp}</option>
+                <option key={exp} value={exp}>
+                  {exp}
+                </option>
               ))}
             </select>
-            <button className="bg-purple-600 text-white p-2 rounded w-full" onClick={handleStart}>Start Interview</button>
+            <button
+              className="bg-purple-600 text-white p-2 rounded w-full"
+              onClick={handleStart}
+            >
+              Start Interview
+            </button>
           </>
         ) : (
           <>
             <h2 className="text-2xl font-bold mb-4">Interview Question</h2>
-            <p className="mb-4">{questionsData[role][currentQuestion]?.question}</p>
-            {questionsData[role][currentQuestion]?.options.map((option) => (
-              <button key={option} className={`block w-full p-2 mb-2 border rounded ${selectedAnswer === option ? 'bg-blue-500 text-white' : 'bg-gray-200'}`} onClick={() => setSelectedAnswer(option)}>
-                {option}
-              </button>
-            ))}
-            <button className="bg-green-500 text-white p-2 rounded w-full mt-4" onClick={handleNext}>Next</button>
+            <p className="mb-4">{demoQuestions[role][currentQuestion]?.question}</p>
+            <div className="mb-4">
+              {demoQuestions[role][currentQuestion]?.options.map((option, index) => (
+                <label key={index} className="block">
+                  <input
+                    type="radio"
+                    value={option}
+                    checked={selectedAnswer === option}
+                    onChange={() => setSelectedAnswer(option)}
+                    className="mr-2"
+                  />
+                  {option}
+                </label>
+              ))}
+            </div>
+            <button
+              className="bg-green-500 text-white p-2 rounded w-full mt-4"
+              onClick={handleNext}
+            >
+              Next
+            </button>
           </>
         )}
-        {!interviewStarted && answers.length > 0 && (
-          <div className="mt-6">
-            <h2 className="text-xl font-bold">Your Score: {score}/{answers.length}</h2>
-            <h3 className="text-lg font-semibold mt-4">Answers:</h3>
-            <ul>
-              {answers.map((ans, index) => (
-                <li key={index} className="mt-2">
-                  <p><strong>Q:</strong> {ans.question}</p>
-                  <p><strong>Your Answer:</strong> {ans.selected}</p>
-                  <p><strong>Correct Answer:</strong> {ans.answer}</p>
-                </li>
-              ))}
-            </ul>
-            <button className="bg-blue-500 text-white p-2 rounded w-full mt-4" onClick={() => navigate("/")}>Back to Home</button>
+        {showResults && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl">
+              <h2 className="text-2xl font-bold mb-4 ">Your Score: {score}/10</h2>
+              <h3 className="text-lg font-semibold mb-4">{getGreeting()}</h3>
+              <table className="min-w-full border-collapse border border-gray-300">
+                <thead>
+                  <tr>
+                    <th className="border border-gray-300 p-2">Question</th>
+                    <th className="border border-gray-300 p-2">Your Answer</th>
+                    <th className="border border-gray-300 p-2">Correct Answer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {answers.map((ans, index) => (
+                    <tr key={index}>
+                      <td className="border border-gray-300 p-2">{ans.question}</td>
+                      <td className="border border-gray-300 p-2">{ans.selected}</td>
+                      <td className="border border-gray-300 p-2">{ans.correct}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <button
+                className="bg-blue-500 text-white p-2 rounded w-full mt-4"
+                onClick={handleRestart}
+              >
+                Restart
+              </button>
+            </div>
           </div>
         )}
       </div>
