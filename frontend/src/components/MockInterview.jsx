@@ -314,7 +314,7 @@ const experiences = ["Fresher", "1 Year", "2 Years", "3+ Years"];
 
 const demoQuestions = {
   "Frontend Developer": [
-    { question: "What is React?", options: [...], answer: "..." },
+    { question: "What is React?", options: ["A JavaScript library", "A CSS framework", "A database", "A backend framework"], answer: "A JavaScript library" },
     // Other questions...
   ],
   // Add demo questions for other roles as needed
