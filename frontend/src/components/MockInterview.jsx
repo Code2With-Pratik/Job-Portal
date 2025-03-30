@@ -714,13 +714,13 @@ const MockInterview = () => {
   return (
     <div>
       <Navbar />
-      <div className="bg-white shadow-[0px_10px_30px_rgba(0,0,0,0.3)] rounded-lg p-10 w-full max-w-3xl mx-auto mt-20">
+      <div className="bg-white dark:bg-gray-900 dark:text-white shadow-[0px_10px_30px_rgba(0,0,0,0.3)] rounded-lg p-10 w-full max-w-3xl mx-auto mt-20">
         {!interviewStarted ? (
           <>
-            <h2 className="text-3xl font-bold mb-5 mx-32">Start Your Mock Interview</h2>
-            <label className="block text-lg font-semibold mb-2">Select Role:</label>
+            <h2 className="text-3xl font-bold mb-5 mx-32 dark:text-gray-200">Start Your Mock Interview</h2>
+            <label className="block text-lg font-semibold mb-2 dark:text-gray-300">Select Role:</label>
             <select
-              className="w-full p-2 mb-4 border rounded"
+              className="w-full p-2 mb-4 border rounded dark:bg-gray-800 dark:border-gray-600 dark:text-white"
               value={role}
               onChange={(e) => setRole(e.target.value)}
             >
@@ -752,7 +752,7 @@ const MockInterview = () => {
             )}
             <label className="block text-lg font-semibold mb-2">Select Experience:</label>
             <select
-              className="w-full p-2 mb-4 border rounded"
+              className="w-full p-2 mb-4 border rounded dark:bg-gray-800 dark:border-gray-600 dark:text-white"
               value={experience}
               onChange={(e) => setExperience(e.target.value)}
             >
@@ -813,7 +813,7 @@ const MockInterview = () => {
         )}
         {showResults && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
-            <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-4xl max-h-[500px] overflow-y-auto">
+            <div className="bg-white dark:bg-gray-900 p-10 rounded-lg shadow-lg w-full max-w-4xl max-h-[500px] overflow-y-auto text-black dark:text-white">
               {/* <h2 className="text-center text-2xl font-bold mb-4">
                 Your Score: {score}/{demoQuestions[role].length}
               </h2> */}
@@ -843,34 +843,38 @@ const MockInterview = () => {
               </div>
 
 
-              <table className="min-w-full border-collapse border border-gray-300 mt-4">
-                <thead className="bg-gray-200">
+              <table className="min-w-full border-collapse border border-gray-300 dark:border-gray-700 mt-4">
+                <thead className="bg-gray-200 dark:bg-gray-800 text-black dark:text-white">
                   <tr>
-                    <th className="border border-gray-300 p-2">Question</th>
-                    <th className="border border-gray-300 p-2">Your Answer</th>
-                    <th className="border border-gray-300 p-2">Correct Answer</th>
+                    <th className="border border-gray-300 p-2 dark:border-gray-700">Question</th>
+                    <th className="border border-gray-300 p-2 dark:border-gray-700">Your Answer</th>
+                    <th className="border border-gray-300 p-2 dark:border-gray-700">Correct Answer</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="bg-white dark:bg-gray-900 text-black dark:text-white">
                   {answers.map((ans, index) => (
-                    <tr key={index} className="border border-gray-300">
-                      <td className="border border-gray-300 p-2 text-black font-medium">
+                    <tr key={index} className="border border-gray-300 dark:border-gray-700">
+                      <td className="border border-gray-300 dark:border-gray-700 p-2">
                         {ans.question}
                       </td>
                       <td
-                        className={`border border-gray-300 p-2 ${
-                          ans.selected === ans.correct ? "text-green-500 font-semibold" : "text-red-500 font-semibold"
+                        className={`border border-gray-300 dark:border-gray-700 p-2 ${
+                          ans.selected === ans.correct
+                            ? "text-green-500 dark:text-green-400 font-semibold"
+                            : "text-red-500 dark:text-red-400 font-semibold"
                         }`}
                       >
                         {ans.selected}
                       </td>
-                      <td className="border border-gray-300 p-2 text-black font-semibold">
+                      <td className="border border-gray-300 dark:border-gray-700 p-2">
                         {ans.correct}
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+
+
               <button
                 className="bg-purple-800 text-white p-2 rounded w-full mt-4 hover:bg-purple-900 transition"
                 onClick={handleRestart}
