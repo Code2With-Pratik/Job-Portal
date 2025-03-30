@@ -232,34 +232,98 @@ const demoQuestions = {
 
   "Full Stack Developer": [
     {
-      question: "What is the MERN stack?",
+      question: "What is the difference between front-end and back-end development?",
       options: [
-        "MongoDB, Express.js, React, and Node.js.",
-        "MySQL, Express.js, React, and Node.js.",
-        "MongoDB, Ember.js, React, and Node.js.",
-        "MongoDB, Express.js, React, and Next.js."
+        "Front-end is responsible for UI, back-end manages server logic and databases.",
+        "Back-end handles the UI, front-end handles databases.",
+        "Both are the same.",
+        "Back-end only involves APIs."
       ],
-      answer: "MongoDB, Express.js, React, and Node.js."
+      answer: "Front-end is responsible for UI, back-end manages server logic and databases."
     },
     {
-      question: "What is the MEAN stack?",
-      options: [
-        "MongoDB, Express.js, Angular, and Node.js.",
-        "MongoDB, Ember.js, Angular, and Node.js.",
-        "MongoDB, Express.js, React, and Next.js.",
-        "MongoDB, Express.js, Angular, and Nest.js."
-      ],
-      answer: "MongoDB, Express.js, Angular, and Node.js."
+      question: "Which of the following is NOT a frontend framework?",
+      options: ["React", "Vue", "Django", "Angular"],
+      answer: "Django"
     },
     {
-      question: "What is the LAMP stack?",
+      question: "Which database type is used for storing relational data?",
+      options: ["MongoDB", "MySQL", "Redis", "GraphQL"],
+      answer: "MySQL"
+    },
+  
+    // Medium Questions
+    {
+      question: "What is the main advantage of using REST APIs?",
       options: [
-        "Linux, Apache, MySQL, and PHP.",
-        "Linux, Angular, MySQL, and PHP.",
-        "Linux, Apache, MongoDB, and Python.",
-        "Linux, Apache, MongoDB, and PHP."
+        "They allow standardized communication between client and server.",
+        "They make the frontend load faster.",
+        "They store data permanently in browsers.",
+        "They replace the need for databases."
       ],
-      answer: "Linux, Apache, MySQL, and PHP."
+      answer: "They allow standardized communication between client and server."
+    },
+    {
+      question: "How does JWT (JSON Web Token) improve authentication security?",
+      options: [
+        "It allows stateless authentication by encoding user data into a token.",
+        "It encrypts all requests between frontend and backend.",
+        "It only works with OAuth 2.0.",
+        "It does not require any server-side verification."
+      ],
+      answer: "It allows stateless authentication by encoding user data into a token."
+    },
+    {
+      question: "Which of the following is NOT a benefit of using Docker in full-stack development?",
+      options: [
+        "Consistent development environment.",
+        "Lightweight containerization of applications.",
+        "Better frontend rendering performance.",
+        "Easier deployment across different systems."
+      ],
+      answer: "Better frontend rendering performance."
+    },
+    {
+      question: "What is an ORM, and why is it used in backend development?",
+      options: [
+        "ORM (Object-Relational Mapping) simplifies database interactions using code instead of SQL.",
+        "ORM is a JavaScript library for frontend development.",
+        "ORM replaces the need for databases.",
+        "ORM is used for caching API responses."
+      ],
+      answer: "ORM (Object-Relational Mapping) simplifies database interactions using code instead of SQL."
+    },
+  
+    // Tough Questions
+    {
+      question: "What problem does CORS (Cross-Origin Resource Sharing) solve in web development?",
+      options: [
+        "It speeds up backend API requests.",
+        "It allows secure communication between different domains.",
+        "It prevents database injection attacks.",
+        "It replaces the need for authentication."
+      ],
+      answer: "It allows secure communication between different domains."
+    },
+    {
+      question: "How does the event loop work in Node.js?",
+      options: [
+        "It handles asynchronous operations by using a single-threaded non-blocking mechanism.",
+        "It creates a new thread for every request.",
+        "It requires multi-threading to function.",
+        "It executes all code synchronously."
+      ],
+      answer: "It handles asynchronous operations by using a single-threaded non-blocking mechanism."
+    },
+    {
+      question: "What is the difference between SQL and NoSQL databases, and when would you use each?",
+      options: [
+        "SQL is always faster than NoSQL.",
+        "NoSQL databases do not store any structured data.",
+        "SQL databases use structured tables, while NoSQL databases are flexible and schema-less.",
+        "SQL databases are only used in frontend applications."
+      ],
+      answer: "SQL databases use structured tables, while NoSQL databases are flexible and schema-less."
     }
   ],
 
