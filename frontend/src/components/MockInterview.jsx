@@ -520,9 +520,9 @@ const demoQuestions = {
     {
       question: "Which programming language is primarily used for developing Flutter applications?",
       options: [
-        "Dart",
         "Java",
         "Kotlin",
+        "Dart",
         "Swift"
       ],
       answer: "Dart"
@@ -530,8 +530,8 @@ const demoQuestions = {
     {
       question: "Which of the following is a cross-platform mobile development framework?",
       options: [
-        "React Native",
         "Spring Boot",
+        "React Native",
         "Angular",
         "ASP.NET"
       ],
@@ -540,8 +540,8 @@ const demoQuestions = {
     {
       question: "What does the term 'hot reload' mean in Flutter?",
       options: [
-        "It allows developers to see code changes in real time without restarting the app.",
         "It restarts the app after every code change.",
+        "It allows developers to see code changes in real time without restarting the app.",
         "It is a technique to reduce app size.",
         "It optimizes app animations."
       ],
@@ -552,20 +552,20 @@ const demoQuestions = {
     {
       question: "Which of the following is used for managing global state in React Native applications?",
       options: [
-        "Redux",
         "Bootstrap",
         "jQuery",
-        "Django"
+        "Django",
+        "Redux"
       ],
       answer: "Redux"
     },
     {
       question: "Which database is commonly used for offline storage in mobile applications?",
       options: [
-        "SQLite",
         "MongoDB",
         "PostgreSQL",
-        "Firebase Firestore"
+        "Firebase Firestore",
+        "SQLite"
       ],
       answer: "SQLite"
     },
@@ -582,9 +582,9 @@ const demoQuestions = {
     {
       question: "Which of these mobile app development frameworks is built by Google?",
       options: [
-        "Flutter",
         "React Native",
         "SwiftUI",
+        "Flutter",
         "Xamarin"
       ],
       answer: "Flutter"
@@ -594,8 +594,8 @@ const demoQuestions = {
     {
       question: "What is the key advantage of using React Native over native development?",
       options: [
-        "Code reusability across iOS and Android.",
         "Better GPU performance.",
+        "Code reusability across iOS and Android.",
         "Automatic memory management.",
         "Built-in database support."
       ],
