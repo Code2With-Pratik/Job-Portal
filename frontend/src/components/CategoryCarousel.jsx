@@ -10,7 +10,10 @@ const category = [
     "Backend Developer",
     "Data Science",
     "Graphic Designer",
-    "FullStack Developer"
+    "Data Analyst",
+    "Cybersecurity",
+    "App Developer",
+    "Full Stack Developer"
 ]
 
 const CategoryCarousel = () => {
@@ -23,7 +26,7 @@ const CategoryCarousel = () => {
 
     return (
         <div>
-            <Carousel className="w-full max-w-xl mx-auto my-20">
+            <Carousel className="w-full max-w-md mx-auto my-20">
                 <CarouselContent>
                     {
                         category.map((cat, index) => (
