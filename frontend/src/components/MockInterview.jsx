@@ -148,7 +148,7 @@ const MockInterview = () => {
   };
 
   const getGreeting = () => {
-    if (score < 5) return "Work Hard👎!";
+    if (score < 5) return "Keep Trying👎!";
     if (score >= 5 && score < 8) return "Good 🙂!";
     return "Excellent👍!";
   };
