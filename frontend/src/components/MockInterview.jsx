@@ -26,34 +26,104 @@ const experiences = ["Fresher", "1 Year", "2 Years", "3+ Years"];
 const demoQuestions = {
   "Frontend Developer": [
     {
-      question: "What is React?",
+      question: "What is the difference between CSS Grid and Flexbox?",
       options: [
-        "A JavaScript library for building user interfaces.",
-        "A CSS framework.",
-        "A backend framework.",
-        "A database."
+        "Flexbox is used for two-dimensional layouts, while CSS Grid is for one-dimensional layouts.",
+        "Both are identical in functionality.",
+        "CSS Grid is used for two-dimensional layouts, while Flexbox is for one-dimensional layouts.",
+        "CSS Grid is only used for mobile applications."
       ],
-      answer: "A JavaScript library for building user interfaces."
+      answer: "CSS Grid is used for two-dimensional layouts, while Flexbox is for one-dimensional layouts."
     },
     {
-      question: "What is Vue?",
+      question: "What is the primary role of the Virtual DOM in React?",
       options: [
-        "A progressive JavaScript framework.",
-        "A database.",
-        "A JavaScript testing library.",
-        "A backend framework."
+        "To store application state globally.",
+        "To improve performance by minimizing direct manipulation of the real DOM.",
+        "To manage authentication and security.",
+        "To handle HTTP requests in React applications."
       ],
-      answer: "A progressive JavaScript framework."
+      answer: "To improve performance by minimizing direct manipulation of the real DOM."
     },
     {
-      question: "What is Angular?",
+      question: "Which of the following is NOT a JavaScript framework?",
       options: [
-        "A TypeScript-based open-source front-end framework.",
-        "A JavaScript runtime.",
-        "A CSS preprocessor.",
-        "A JavaScript library."
+        "React",
+        "Vue",
+        "jQuery",
+        "Django"
       ],
-      answer: "A TypeScript-based open-source front-end framework."
+      answer: "Django"
+    },
+    {
+      question: "What is the purpose of the useState hook in React?",
+      options: [
+        "To manage state in function components.",
+        "To fetch data from an API.",
+        "To define styles in JSX.",
+        "To navigate between different pages."
+      ],
+      answer: "To manage state in function components."
+    },
+    {
+      question: "What is the purpose of media queries in CSS?",
+      options: [
+        "To fetch data from a server.",
+        "To apply different styles based on screen size or device type.",
+        "To handle event listeners in JavaScript.",
+        "To structure HTML elements."
+      ],
+      answer: "To apply different styles based on screen size or device type."
+    },
+    {
+      question: "Which JavaScript method is used to fetch data from an API?",
+      options: [
+        "getElementById()",
+        "querySelector()",
+        "fetch()",
+        "addEventListener()"
+      ],
+      answer: "fetch()"
+    },
+    {
+      question: "What does the term 'responsive web design' mean?",
+      options: [
+        "A framework for developing native mobile applications.",
+        "A design approach that ensures web pages look good on all devices and screen sizes.",
+        "A technique used for improving database performance.",
+        "A software testing methodology."
+      ],
+      answer: "A design approach that ensures web pages look good on all devices and screen sizes."
+    },
+    {
+      question: "Which of the following is a CSS preprocessor?",
+      options: [
+        "SASS",
+        "TypeScript",
+        "Babel",
+        "React"
+      ],
+      answer: "SASS"
+    },
+    {
+      question: "What is the main purpose of the useEffect hook in React?",
+      options: [
+        "To create reusable UI components.",
+        "To perform side effects in function components.",
+        "To define component props.",
+        "To manage state globally."
+      ],
+      answer: "To perform side effects in function components."
+    },
+    {
+      question: "What is the role of a Content Delivery Network (CDN) in frontend development?",
+      options: [
+        "To store and manage relational databases.",
+        "To handle user authentication and authorization.",
+        "To build reusable UI components.",
+        "To distribute website content across multiple servers to improve speed and availability."
+      ],
+      answer: "To distribute website content across multiple servers to improve speed and availability."
     }
   ],
 
