@@ -27,56 +27,180 @@ const demoQuestions = {
   "Frontend Developer": [
     {
       question: "What is React?",
-      options: ["A JavaScript library for building user interfaces.", "A CSS framework.", "A backend framework.", "A database."],
-      answer: "A JavaScript library for building user interfaces.",
+      options: [
+        "A JavaScript library for building user interfaces.",
+        "A CSS framework.",
+        "A backend framework.",
+        "A database."
+      ],
+      answer: "A JavaScript library for building user interfaces."
     },
     {
-      question: "What is JSX?",
-      options: ["A syntax extension for JavaScript.", "A JavaScript library.", "A CSS preprocessor.", "A database."],
-      answer: "A syntax extension for JavaScript.",
+      question: "What is Vue?",
+      options: [
+        "A progressive JavaScript framework.",
+        "A database.",
+        "A JavaScript testing library.",
+        "A backend framework."
+      ],
+      answer: "A progressive JavaScript framework."
     },
     {
-      question: "What are props in React?",
-      options: ["Inputs to components.", "State variables.", "Functions.", "Styles."],
-      answer: "Inputs to components.",
-    },
-    {
-      question: "What is state in React?",
-      options: ["A built-in object that stores property values.", "A CSS property.", "A JavaScript function.", "A component."],
-      answer: "A built-in object that stores property values.",
-    },
-    {
-      question: "What is a component in React?",
-      options: ["A reusable piece of UI.", "A JavaScript variable.", "A CSS class.", "A database."],
-      answer: "A reusable piece of UI.",
-    },
-    {
-      question: "What is the virtual DOM?",
-      options: ["A lightweight copy of the actual DOM.", "A CSS framework.", "A JavaScript library.", "A database."],
-      answer: "A lightweight copy of the actual DOM.",
-    },
-    {
-      question: "What is a hook in React?",
-      options: ["Functions that let you use state and other React features.", "A CSS property.", "A JavaScript variable.", "A database."],
-      answer: "Functions that let you use state and other React features.",
-    },
-    {
-      question: "What is Redux?",
-      options: ["A state management library for JavaScript apps.", "A CSS framework.", "A JavaScript library.", "A database."],
-      answer: "A state management library for JavaScript apps.",
-    },
-    {
-      question: "What is a higher-order component?",
-      options: ["A function that takes a component and returns a new component.", "A CSS class.", "A JavaScript variable.", "A database."],
-      answer: "A function that takes a component and returns a new component.",
-    },
-    {
-      question: "What is the purpose of useEffect?",
-      options: ["To perform side effects in function components.", "To manage state.", "To style components.", "To create components."],
-      answer: "To perform side effects in function components.",
-    },
+      question: "What is Angular?",
+      options: [
+        "A TypeScript-based open-source front-end framework.",
+        "A JavaScript runtime.",
+        "A CSS preprocessor.",
+        "A JavaScript library."
+      ],
+      answer: "A TypeScript-based open-source front-end framework."
+    }
   ],
-  // Add demo questions for other roles as needed
+
+  "Backend Developer": [
+    {
+      question: "What is Node.js?",
+      options: [
+        "A JavaScript runtime environment.",
+        "A CSS framework.",
+        "A JavaScript library.",
+        "A database."
+      ],
+      answer: "A JavaScript runtime environment."
+    },
+    {
+      question: "What is Django?",
+      options: [
+        "A high-level Python web framework.",
+        "A JavaScript framework.",
+        "A frontend design tool.",
+        "A database."
+      ],
+      answer: "A high-level Python web framework."
+    },
+    {
+      question: "What is Spring Boot?",
+      options: [
+        "A Java-based framework for building microservices.",
+        "A Node.js module.",
+        "A database optimization tool.",
+        "A Python library."
+      ],
+      answer: "A Java-based framework for building microservices."
+    }
+  ],
+
+  "Full Stack Developer": [
+    {
+      question: "What is the MERN stack?",
+      options: [
+        "MongoDB, Express.js, React, and Node.js.",
+        "MySQL, Express.js, React, and Node.js.",
+        "MongoDB, Ember.js, React, and Node.js.",
+        "MongoDB, Express.js, React, and Next.js."
+      ],
+      answer: "MongoDB, Express.js, React, and Node.js."
+    },
+    {
+      question: "What is the MEAN stack?",
+      options: [
+        "MongoDB, Express.js, Angular, and Node.js.",
+        "MongoDB, Ember.js, Angular, and Node.js.",
+        "MongoDB, Express.js, React, and Next.js.",
+        "MongoDB, Express.js, Angular, and Nest.js."
+      ],
+      answer: "MongoDB, Express.js, Angular, and Node.js."
+    },
+    {
+      question: "What is the LAMP stack?",
+      options: [
+        "Linux, Apache, MySQL, and PHP.",
+        "Linux, Angular, MySQL, and PHP.",
+        "Linux, Apache, MongoDB, and Python.",
+        "Linux, Apache, MongoDB, and PHP."
+      ],
+      answer: "Linux, Apache, MySQL, and PHP."
+    }
+  ],
+
+  "Data Analyst": [
+    {
+      question: "What is Python used for in Data Analysis?",
+      options: [
+        "Performing data analysis, visualization, and machine learning.",
+        "Building mobile apps.",
+        "Managing databases.",
+        "Creating front-end UI components."
+      ],
+      answer: "Performing data analysis, visualization, and machine learning."
+    },
+    {
+      question: "What is SQL used for?",
+      options: [
+        "Querying and managing structured databases.",
+        "Styling web pages.",
+        "Building JavaScript applications.",
+        "Creating UI components."
+      ],
+      answer: "Querying and managing structured databases."
+    },
+    {
+      question: "What is Power BI?",
+      options: [
+        "A business intelligence and data visualization tool by Microsoft.",
+        "A JavaScript framework.",
+        "A backend database management system.",
+        "An open-source Python library."
+      ],
+      answer: "A business intelligence and data visualization tool by Microsoft."
+    }
+  ],
+
+  "Cybersecurity": [
+    {
+      question: "What is Ethical Hacking?",
+      options: [
+        "Legally breaking into computers to test security.",
+        "A type of malware.",
+        "A hacking technique used by cybercriminals.",
+        "A cryptographic algorithm."
+      ],
+      answer: "Legally breaking into computers to test security."
+    },
+    {
+      question: "What is Pen Testing?",
+      options: [
+        "A security assessment that simulates cyber attacks.",
+        "A type of network firewall.",
+        "A programming language.",
+        "A cyber attack method."
+      ],
+      answer: "A security assessment that simulates cyber attacks."
+    }
+  ],
+
+  "App Developer": [
+    {
+      question: "What is Flutter?",
+      options: [
+        "An open-source UI framework by Google.",
+        "A JavaScript library for web development.",
+        "A database management system.",
+        "A version control system."
+      ],
+      answer: "An open-source UI framework by Google."
+    },
+    {
+      question: "What is React Native?",
+      options: [
+        "A framework for building native mobile apps using React.",
+        "A backend framework.",
+        "A CSS preprocessor.",
+        "A database."
+      ],
+      answer: "A framework for building native mobile apps using React."
+    }
+  ]
 };
 
 const MockInterview = () => {
