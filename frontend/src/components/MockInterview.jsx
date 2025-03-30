@@ -129,34 +129,104 @@ const demoQuestions = {
 
   "Backend Developer": [
     {
-      question: "What is Node.js?",
+      question: "What is the primary purpose of a RESTful API?",
       options: [
-        "A JavaScript runtime environment.",
-        "A CSS framework.",
-        "A JavaScript library.",
-        "A database."
+        "To create a user interface for web applications.",
+        "To allow communication between client and server using standard HTTP methods.",
+        "To store and retrieve data in a frontend framework.",
+        "To optimize CSS styles in a web page."
       ],
-      answer: "A JavaScript runtime environment."
+      answer: "To allow communication between client and server using standard HTTP methods."
     },
     {
-      question: "What is Django?",
+      question: "Which HTTP method is typically used for updating an existing resource?",
       options: [
-        "A high-level Python web framework.",
-        "A JavaScript framework.",
-        "A frontend design tool.",
-        "A database."
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
       ],
-      answer: "A high-level Python web framework."
+      answer: "PUT"
     },
     {
-      question: "What is Spring Boot?",
+      question: "What is the difference between SQL and NoSQL databases?",
       options: [
-        "A Java-based framework for building microservices.",
-        "A Node.js module.",
-        "A database optimization tool.",
-        "A Python library."
+        "SQL databases use structured tables, while NoSQL databases use flexible schemas.",
+        "NoSQL databases do not store data, while SQL databases do.",
+        "SQL is faster than NoSQL in all cases.",
+        "NoSQL databases cannot handle large data volumes."
       ],
-      answer: "A Java-based framework for building microservices."
+      answer: "SQL databases use structured tables, while NoSQL databases use flexible schemas."
+    },
+    {
+      question: "What is middleware in backend development?",
+      options: [
+        "A database that stores middleware logic.",
+        "A front-end framework for handling API calls.",
+        "A function that runs between a request and a response in a web application.",
+        "A caching system for JavaScript functions."
+      ],
+      answer: "A function that runs between a request and a response in a web application."
+    },
+    {
+      question: "Which of the following is an example of a relational database?",
+      options: [
+        "MongoDB",
+        "Redis",
+        "MySQL",
+        "Elasticsearch"
+      ],
+      answer: "MySQL"
+    },
+    {
+      question: "What is the role of an ORM (Object-Relational Mapping) tool?",
+      options: [
+        "It allows developers to interact with a database using object-oriented programming.",
+        "It optimizes front-end rendering performance.",
+        "It is used for building mobile applications.",
+        "It is a type of JavaScript framework."
+      ],
+      answer: "It allows developers to interact with a database using object-oriented programming."
+    },
+    {
+      question: "What is the purpose of caching in backend development?",
+      options: [
+        "To store session-related data in the frontend.",
+        "To enhance CSS animations in web applications.",
+        "To automatically generate new database records.",
+        "To speed up data retrieval by storing frequently accessed data."
+      ],
+      answer: "To speed up data retrieval by storing frequently accessed data."
+    },
+    {
+      question: "Which of the following is a common authentication method in backend development?",
+      options: [
+        "OAuth",
+        "HTML",
+        "CSS",
+        "React Hooks"
+      ],
+      answer: "OAuth"
+    },
+    {
+      question: "What is the purpose of Docker in backend development?",
+      options: [
+        "To serve static files in a frontend project.",
+        "To act as a caching layer for database queries.",
+        "To package applications and their dependencies into isolated containers.",
+        "To build UI components for a web application."
+      ],
+      answer: "To package applications and their dependencies into isolated containers."
+    },
+    {
+      question: "What is GraphQL used for in backend development?",
+      options: [
+        "To allow clients to request specific data from an API.",
+        "To store frontend UI components.",
+        "To encrypt database connections.",
+        "To optimize CSS styles."
+      ],
+      answer: "To allow clients to request specific data from an API."
     }
   ],
 
