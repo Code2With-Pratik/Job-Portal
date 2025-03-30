@@ -7,6 +7,8 @@ import { APPLICATION_API_END_POINT, JOB_API_END_POINT } from '@/utils/constant';
 import { setSingleJob } from '@/redux/jobSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'sonner';
+import Navbar from "./shared/Navbar";
+import Footer from "./shared/Footer";
 
 const JobDescription = () => {
     const { singleJob } = useSelector(store => store.job);
@@ -51,6 +53,7 @@ const JobDescription = () => {
 
     return (
         <div className='max-w-7xl mx-auto my-10 p-6 rounded-md bg-white dark:bg-gray-900 shadow-xl border border-gray-200 dark:border-gray-700'>
+            <Navbar />
             <div className='flex items-center justify-between'>
                 <div>
                     <h1 className='font-bold text-xl text-gray-900 dark:text-white'>{singleJob?.title}</h1>
@@ -77,6 +80,7 @@ const JobDescription = () => {
                 <h1 className='font-bold my-1 text-gray-900 dark:text-white'>Total Applicants: <span className='pl-4 font-normal text-gray-800 dark:text-gray-300'>{singleJob?.applications?.length}</span></h1>
                 <h1 className='font-bold my-1 text-gray-900 dark:text-white'>Posted Date: <span className='pl-4 font-normal text-gray-800 dark:text-gray-300'>{singleJob?.createdAt.split("T")[0]}</span></h1>
             </div>
+            <Footer />
         </div>
     )
 }
