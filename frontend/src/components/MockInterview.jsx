@@ -814,30 +814,35 @@ const MockInterview = () => {
         {showResults && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
             <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-4xl max-h-[500px] overflow-y-auto">
-              <h2 className="text-2xl font-bold mb-4">
+              {/* <h2 className="text-center text-2xl font-bold mb-4">
                 Your Score: {score}/{demoQuestions[role].length}
-              </h2>
+              </h2> */}
               <h3
-                className={`
-                  text-2xl sm:text-3xl font-bold mb-4 
+                className={`text-center
+                  text-2xl sm:text-5xl font-bold mb-4 
                   ${score < 5 ? "text-red-500" : score === 5 ? "text-yellow-500" : "text-green-500"}
                 `}
               >
                 {getGreeting()}
               </h3>
-              <div className="mb-4">
-                <h4 className="font-semibold">Score Visualization:</h4>
-                <div className="flex">
+              <div className="mb-6">
+                <div className="relative w-full h-6 bg-gray-300 rounded-full overflow-hidden shadow-lg">
+                  {/* Dynamically Changing Bar Color */}
                   <div
-                    className="bg-green-500"
-                    style={{ width: `${(score / demoQuestions[role].length) * 100}%`, height: "20px" }}
+                    className={`transition-all duration-700 ease-in-out h-full rounded-full shadow-md ${
+                      score < 5 ? "bg-red-500" : score <= 7 ? "bg-yellow-500" : "bg-green-500"
+                    }`}
+                    style={{ width: `${(score / demoQuestions[role].length) * 100}%` }}
                   ></div>
-                  <div
-                    className="bg-red-500"
-                    style={{ width: `${((demoQuestions[role].length - score) / demoQuestions[role].length) * 100}%`, height: "20px" }}
-                  ></div>
+
+                  {/* Score Text Overlay */}
+                  <span className="absolute inset-0 flex justify-center items-center text-white font-bold text-sm drop-shadow-lg">
+                    {score} / {demoQuestions[role].length} Correct
+                  </span>
                 </div>
               </div>
+
+
               <table className="min-w-full border-collapse border border-gray-300 mt-4">
                 <thead className="bg-gray-200">
                   <tr>
