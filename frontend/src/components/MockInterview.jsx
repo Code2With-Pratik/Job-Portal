@@ -329,80 +329,297 @@ const demoQuestions = {
 
   "Data Analyst": [
     {
-      question: "What is Python used for in Data Analysis?",
+      question: "What is the primary purpose of a data analyst?",
       options: [
-        "Performing data analysis, visualization, and machine learning.",
-        "Building mobile apps.",
-        "Managing databases.",
-        "Creating front-end UI components."
+        "To analyze data and provide insights for decision-making.",
+        "To create front-end applications.",
+        "To develop backend APIs.",
+        "To design UI/UX interfaces."
       ],
-      answer: "Performing data analysis, visualization, and machine learning."
+      answer: "To analyze data and provide insights for decision-making."
     },
     {
-      question: "What is SQL used for?",
-      options: [
-        "Querying and managing structured databases.",
-        "Styling web pages.",
-        "Building JavaScript applications.",
-        "Creating UI components."
-      ],
-      answer: "Querying and managing structured databases."
+      question: "Which of the following is a structured query language?",
+      options: ["Python", "SQL", "Excel", "Power BI"],
+      answer: "SQL"
     },
     {
-      question: "What is Power BI?",
+      question: "What is the role of a primary key in a database?",
       options: [
-        "A business intelligence and data visualization tool by Microsoft.",
-        "A JavaScript framework.",
-        "A backend database management system.",
-        "An open-source Python library."
+        "To store duplicate values.",
+        "To uniquely identify each record in a table.",
+        "To connect multiple databases together.",
+        "To display data visually."
       ],
-      answer: "A business intelligence and data visualization tool by Microsoft."
+      answer: "To uniquely identify each record in a table."
+    },
+  
+    // Medium Questions
+    {
+      question: "What does the term ETL stand for in data analysis?",
+      options: [
+        "Evaluate, Test, Learn",
+        "Estimate, Train, Log",
+        "Edit, Transform, Link",
+        "Extract, Transform, Load"
+      ],
+      answer: "Extract, Transform, Load"
+    },
+    {
+      question: "Which data visualization tool is commonly used by analysts?",
+      options: ["Power BI", "Photoshop", "TensorFlow", "Docker"],
+      answer: "Power BI"
+    },
+    {
+      question: "Which SQL function is used to remove duplicate values from a result set?",
+      options: ["DISTINCT", "UNIQUE", "FILTER", "GROUP BY"],
+      answer: "DISTINCT"
+    },
+    {
+      question: "Which Python library is widely used for data analysis?",
+      options: ["Pandas", "Django", "React", "Flask"],
+      answer: "Pandas"
+    },
+  
+    // Tough Questions
+    {
+      question: "What is the difference between supervised and unsupervised learning in data analysis?",
+      options: [
+        "Supervised learning is used only for image processing.",
+        "Unsupervised learning requires labeled datasets.",
+        "Supervised learning uses labeled data, unsupervised learning finds patterns in unlabeled data.",
+        "Both are the same."
+      ],
+      answer: "Supervised learning uses labeled data, unsupervised learning finds patterns in unlabeled data."
+    },
+    {
+      question: "What is the purpose of normalization in a database?",
+      options: [
+        "To create duplicate records.",
+        "To reduce data redundancy and improve efficiency.",
+        "To speed up queries by duplicating data.",
+        "To store data in raw form."
+      ],
+      answer: "To reduce data redundancy and improve efficiency."
+    },
+    {
+      question: "Which of the following is an example of a NoSQL database?",
+      options: ["MongoDB", "MySQL", "PostgreSQL", "SQLite"],
+      answer: "MongoDB"
     }
   ],
 
   "Cybersecurity": [
     {
-      question: "What is Ethical Hacking?",
+      question: "What is the primary goal of cybersecurity?",
       options: [
-        "Legally breaking into computers to test security.",
-        "A type of malware.",
-        "A hacking technique used by cybercriminals.",
-        "A cryptographic algorithm."
+        "To design user interfaces.",
+        "To develop mobile applications.",
+        "To protect systems, networks, and data from cyber threats.",
+        "To create animated graphics."
       ],
-      answer: "Legally breaking into computers to test security."
+      answer: "To protect systems, networks, and data from cyber threats."
     },
     {
-      question: "What is Pen Testing?",
+      question: "Which of the following is an example of two-factor authentication (2FA)?",
       options: [
-        "A security assessment that simulates cyber attacks.",
-        "A type of network firewall.",
-        "A programming language.",
-        "A cyber attack method."
+        "Using a simple password.",
+        "Entering a password and a one-time code sent via SMS.",
+        "Logging in with just an email address.",
+        "Opening a website without login credentials."
       ],
-      answer: "A security assessment that simulates cyber attacks."
+      answer: "Entering a password and a one-time code sent via SMS."
+    },
+    {
+      question: "Which of the following is a common type of cyber attack?",
+      options: [
+        "White-boxing",
+        "Phishing",
+        "Blueprinting",
+        "Prototyping"
+      ],
+      answer: "Phishing"
+    },
+  
+    // Medium Questions
+    {
+      question: "What is a firewall used for in cybersecurity?",
+      options: [
+        "To scan for software updates.",
+        "To monitor and control incoming and outgoing network traffic.",
+        "To increase internet speed.",
+        "To enhance video resolution."
+      ],
+      answer: "To monitor and control incoming and outgoing network traffic."
+    },
+    {
+      question: "Which encryption algorithm is commonly used to secure online transactions?",
+      options: [
+        "DNS",
+        "AES",
+        "HTML",
+        "HDD"
+      ],
+      answer: "AES"
+    },
+    {
+      question: "Which of the following is a strong password?",
+      options: [
+        "123456",
+        "password",
+        "P@ssw0rd123!",
+        "qwerty"
+      ],
+      answer: "P@ssw0rd123!"
+    },
+    {
+      question: "What does the term 'zero-day vulnerability' refer to?",
+      options: [
+        "A hacking attempt that lasts for 24 hours.",
+        "An outdated antivirus system.",
+        "A security flaw that has no official patch or fix.",
+        "A cyber attack that happens once a year."
+      ],
+      answer: "A security flaw that has no official patch or fix."
+    },
+  
+    // Tough Questions
+    {
+      question: "Which cybersecurity framework is widely used by organizations?",
+      options: [
+        "NIST",
+        "JPEG",
+        "HTTPS",
+        "Wi-Fi 6"
+      ],
+      answer: "NIST"
+    },
+    {
+      question: "What is the purpose of penetration testing?",
+      options: [
+        "To protect against power outages.",
+        "To identify vulnerabilities in a system before attackers do.",
+        "To increase the speed of a server.",
+        "To prevent software updates."
+      ],
+      answer: "To identify vulnerabilities in a system before attackers do."
+    },
+    {
+      question: "Which of the following is NOT a cybersecurity best practice?",
+      options: [
+        "Enabling multi-factor authentication.",
+        "Using the same password for all accounts.",
+        "Regularly updating software and systems.",
+        "Using strong and unique passwords."
+      ],
+      answer: "Using the same password for all accounts."
     }
   ],
 
   "App Developer": [
     {
-      question: "What is Flutter?",
+      question: "Which programming language is primarily used for developing Flutter applications?",
       options: [
-        "An open-source UI framework by Google.",
-        "A JavaScript library for web development.",
-        "A database management system.",
-        "A version control system."
+        "Dart",
+        "Java",
+        "Kotlin",
+        "Swift"
       ],
-      answer: "An open-source UI framework by Google."
+      answer: "Dart"
     },
     {
-      question: "What is React Native?",
+      question: "Which of the following is a cross-platform mobile development framework?",
       options: [
-        "A framework for building native mobile apps using React.",
-        "A backend framework.",
-        "A CSS preprocessor.",
-        "A database."
+        "React Native",
+        "Spring Boot",
+        "Angular",
+        "ASP.NET"
       ],
-      answer: "A framework for building native mobile apps using React."
+      answer: "React Native"
+    },
+    {
+      question: "What does the term 'hot reload' mean in Flutter?",
+      options: [
+        "It allows developers to see code changes in real time without restarting the app.",
+        "It restarts the app after every code change.",
+        "It is a technique to reduce app size.",
+        "It optimizes app animations."
+      ],
+      answer: "It allows developers to see code changes in real time without restarting the app."
+    },
+  
+    // Medium Questions
+    {
+      question: "Which of the following is used for managing global state in React Native applications?",
+      options: [
+        "Redux",
+        "Bootstrap",
+        "jQuery",
+        "Django"
+      ],
+      answer: "Redux"
+    },
+    {
+      question: "Which database is commonly used for offline storage in mobile applications?",
+      options: [
+        "SQLite",
+        "MongoDB",
+        "PostgreSQL",
+        "Firebase Firestore"
+      ],
+      answer: "SQLite"
+    },
+    {
+      question: "What is the purpose of the `pubspec.yaml` file in a Flutter project?",
+      options: [
+        "To manage dependencies and project settings.",
+        "To define UI components.",
+        "To store local database queries.",
+        "To execute HTTP requests."
+      ],
+      answer: "To manage dependencies and project settings."
+    },
+    {
+      question: "Which of these mobile app development frameworks is built by Google?",
+      options: [
+        "Flutter",
+        "React Native",
+        "SwiftUI",
+        "Xamarin"
+      ],
+      answer: "Flutter"
+    },
+  
+    // Tough Questions
+    {
+      question: "What is the key advantage of using React Native over native development?",
+      options: [
+        "Code reusability across iOS and Android.",
+        "Better GPU performance.",
+        "Automatic memory management.",
+        "Built-in database support."
+      ],
+      answer: "Code reusability across iOS and Android."
+    },
+    {
+      question: "Which of the following is NOT a benefit of using Flutter?",
+      options: [
+        "Limited need for platform-specific code.",
+        "Slower performance compared to native development.",
+        "A single codebase for Android and iOS.",
+        "Built-in support for Material Design and Cupertino widgets."
+      ],
+      answer: "Slower performance compared to native development."
+    },
+    {
+      question: "What does the `useEffect` hook do in a React Native application?",
+      options: [
+        "It performs side effects in function components.",
+        "It handles global state management.",
+        "It replaces the traditional Redux store.",
+        "It executes network requests synchronously."
+      ],
+      answer: "It performs side effects in function components."
     }
   ]
 };
