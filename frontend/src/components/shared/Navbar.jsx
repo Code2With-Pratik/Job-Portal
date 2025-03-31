@@ -9,13 +9,13 @@ import axios from 'axios';
 import { USER_API_END_POINT } from '@/utils/constant';
 import { setUser } from '@/redux/authSlice';
 import { toast } from 'sonner';
-import ThemeToggle from '../ThemeToggle'; // Import ThemeToggle
+import ThemeToggle from '../ThemeToggle';
 
 const Navbar = () => {
     const { user } = useSelector(store => store.auth);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [menuOpen, setMenuOpen] = useState(false); // State to control menu visibility
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const logoutHandler = async () => {
         try {
@@ -34,46 +34,34 @@ const Navbar = () => {
     return (
         <div className="bg-white dark:bg-gray-900 dark:text-white drop-shadow-sm sticky top-0 z-50">
             <div className="flex items-center justify-between mx-auto max-w-7xl h-16 px-4 md:px-8">
-                
-                {/* Left Section - Branding */}
                 <div>
                     <h1 className="text-2xl font-bold">Job<span className="text-[#7825b8] font-serif">Hunt</span></h1>
                 </div>
-
-                {/* Mobile Menu Button */}
                 <div className="md:hidden flex items-center gap-3">
                     <ThemeToggle /> 
                     <Button variant="outline" size="icon" onClick={() => setMenuOpen(!menuOpen)}>
                         <Menu className="w-6 h-6" />
                     </Button>
                 </div>
-
-                {/* Desktop Navigation Links */}
                 <div className={`md:flex items-center gap-10 ${menuOpen ? "flex flex-col absolute top-16 left-0 w-full bg-white dark:bg-gray-900 py-4 shadow-md" : "hidden"}`}>
-                    <ul className="md:flex items-center gap-6 text-center md:text-left">
-                        {
-                            user && user.role === 'recruiter' ? (
-                                <>
-                                    <li><Link to="/admin/companies" className="block py-2 px-4 md:p-0">Companies</Link></li>
-                                    <li><Link to="/admin/jobs" className="block py-2 px-4 md:p-0">Jobs</Link></li>
-                                </>
-                            ) : (
-                                <>
-                                    <li><Link to="/" className="block py-2 px-4 md:p-0">Home</Link></li>
-                                    <li><Link to="/jobs" className="block py-2 px-4 md:p-0">Jobs</Link></li>
-                                    <li><Link to="/browse" className="block py-2 px-4 md:p-0">Browse</Link></li>
-                                    <li><Link to="/mock-interview" className="block py-2 px-4 md:p-0">Mock Interview</Link></li>
-                                </>
-                            )
-                        }
+                    <ul className="md:flex items-center justify-center gap-8 text-center md:w-full">
+                        {user && user.role === 'recruiter' ? (
+                            <>
+                                <li><Link to="/admin/companies" className="block py-2 px-4 md:p-0 hover:text-[#7825b8] transition-colors">Companies</Link></li>
+                                <li><Link to="/admin/jobs" className="block py-2 px-4 md:p-0 hover:text-[#7825b8] transition-colors">Jobs</Link></li>
+                            </>
+                        ) : (
+                            <>
+                                <li><Link to="/" className="block py-2 px-4 md:p-0 hover:text-[#7825b8] transition-colors">Home</Link></li>
+                                <li><Link to="/jobs" className="block py-2 px-4 md:p-0 hover:text-[#7825b8] transition-colors">Jobs</Link></li>
+                                <li><Link to="/browse" className="block py-2 px-4 md:p-0 hover:text-[#7825b8] transition-colors">Browse</Link></li>
+                                <li><Link to="/mock-interview" className="block py-2 px-4 md:p-0 hover:text-[#7825b8] transition-colors">Mock Interview</Link></li>
+                            </>
+                        )}
                     </ul>
-
-                    {/* Desktop Theme Toggle */}
                     <div className="hidden md:block">
                         <ThemeToggle />
                     </div>
-
-                    {/* Auth Section */}
                     <div className="flex flex-col md:flex-row items-center gap-3 mt-4 md:mt-0">
                         {!user ? (
                             <>
@@ -116,8 +104,6 @@ const Navbar = () => {
                         )}
                     </div>
                 </div>
-
-                
             </div>
         </div>
     );
