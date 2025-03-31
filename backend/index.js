@@ -8,6 +8,7 @@ import userRoute from "./routes/user.route.js";
 import companyRoute from "./routes/company.route.js";
 import jobRoute from "./routes/job.route.js";
 import applicationRoute from "./routes/application.route.js";
+import interviewRoutes from "./routes/interviewRoutes.js";
 
 dotenv.config(); // Load environment variables
 
@@ -24,6 +25,10 @@ const corsOptions = {
   origin: "https://job-portal-0q1t.onrender.com", // Frontend origin
   credentials: true, // Allow cookies with CORS
 };
+
+
+app.use('/api/interviews', interviewRoutes);
+
 app.use(cors(corsOptions));
 
 // API Routes
