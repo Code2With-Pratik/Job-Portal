@@ -102,36 +102,19 @@ const Navbar = () => {
                             <Button variant="outline" size="icon" onClick={() => setMenuOpen(!menuOpen)}>
                                 <Menu className="w-6 h-6" />
                             </Button>
-                        ) : (
-                            <Avatar className="cursor-pointer">
-                                <AvatarImage src={user?.profile?.profilePhoto} alt="@shadcn" />
-                            </Avatar>
-                        )}
+                        ) : null}
                     </div>
                 </div>
             </div>
             {/* Mobile Menu */}
-            {menuOpen && (
+            {menuOpen && !user && (
                 <div className="md:hidden flex flex-col items-center gap-4 py-4 bg-white dark:bg-gray-900 shadow-md">
-                    {user && user.role === 'recruiter' ? (
-                        <>
-                            <Link to="/admin/companies" className="nav-link">Companies</Link>
-                            <Link to="/admin/jobs" className="nav-link">Jobs</Link>
-                        </>
-                    ) : (
-                        <>
-                            <Link to="/" className="nav-link">Home</Link>
-                            <Link to="/jobs" className="nav-link">Jobs</Link>
-                            <Link to="/browse" className="nav-link">Browse</Link>
-                            <Link to="/mock-interview" className="nav-link">Mock Interview</Link>
-                        </>
-                    )}
-                    {!user && (
-                        <>
-                            <Link to="/login"><Button variant="outline">Login</Button></Link>
-                            <Link to="/signup"><Button className="bg-[#6A38C2] hover:bg-[#5b30a6]">Signup</Button></Link>
-                        </>
-                    )}
+                    <Link to="/" className="nav-link">Home</Link>
+                    <Link to="/jobs" className="nav-link">Jobs</Link>
+                    <Link to="/browse" className="nav-link">Browse</Link>
+                    <Link to="/mock-interview" className="nav-link">Mock Interview</Link>
+                    <Link to="/login"><Button variant="outline">Login</Button></Link>
+                    <Link to="/signup"><Button className="bg-[#6A38C2] hover:bg-[#5b30a6]">Signup</Button></Link>
                 </div>
             )}
         </div>
