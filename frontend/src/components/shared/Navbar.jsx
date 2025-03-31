@@ -55,7 +55,7 @@ const Navbar = () => {
                 </ul>
                 
                 {/* Right Section */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-8">
                     <ThemeToggle />
                     {!user ? (
                         <div className="hidden md:flex gap-3">
