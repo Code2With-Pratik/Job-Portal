@@ -1,9 +1,9 @@
-import React from 'react'
-import { Button } from './ui/button'
-import { Bookmark } from 'lucide-react'
-import { Avatar, AvatarImage } from './ui/avatar'
-import { Badge } from './ui/badge'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { Button } from './ui/button';
+import { Bookmark } from 'lucide-react';
+import { Avatar, AvatarImage } from './ui/avatar';
+import { Badge } from './ui/badge';
+import { useNavigate } from 'react-router-dom';
 
 const Job = ({ job }) => {
     const navigate = useNavigate();
@@ -13,10 +13,11 @@ const Job = ({ job }) => {
         const currentTime = new Date();
         const timeDifference = currentTime - createdAt;
         return Math.floor(timeDifference / (1000 * 24 * 60 * 60));
-    }
+    };
 
     return (
-        <div className='p-5 rounded-md shadow-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-700'>
+        <div className='p-5 rounded-md shadow-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-700 w-full max-w-sm sm:max-w-md md:max-w-lg'>
+            {/* Top Section */}
             <div className='flex items-center justify-between'>
                 <p className='text-sm text-gray-500 dark:text-gray-400'>
                     {daysAgoFunction(job?.createdAt) === 0 ? "Today" : `${daysAgoFunction(job?.createdAt)} days ago`}
@@ -26,6 +27,7 @@ const Job = ({ job }) => {
                 </Button>
             </div>
 
+            {/* Company Logo & Name */}
             <div className='flex items-center gap-2 my-2'>
                 <Button className="p-6" variant="outline" size="icon">
                     <Avatar>
@@ -33,35 +35,38 @@ const Job = ({ job }) => {
                     </Avatar>
                 </Button>
                 <div>
-                    <h1 className='font-medium text-lg text-black dark:text-white'>{job?.company?.name}</h1>
+                    <h1 className='font-medium text-lg text-black dark:text-white truncate'>{job?.company?.name}</h1>
                     <p className='text-sm text-gray-500 dark:text-gray-400'>India</p>
                 </div>
             </div>
 
+            {/* Job Title & Description */}
             <div>
-                <h1 className='font-bold text-lg my-2 text-black dark:text-white'>{job?.title}</h1>
-                <p className='text-sm text-gray-600 dark:text-gray-300'>{job?.description}</p>
+                <h1 className='font-bold text-lg my-2 text-black dark:text-white truncate'>{job?.title}</h1>
+                <p className='text-sm text-gray-600 dark:text-gray-300 line-clamp-2'>{job?.description}</p>
             </div>
-            
-            <div className='flex items-center gap-2 mt-4'>
+
+            {/* Badges Section */}
+            <div className='flex flex-wrap gap-2 mt-4'>
                 <Badge className="text-blue-700 dark:text-blue-400 font-bold" variant="ghost">{job?.position} Positions</Badge>
                 <Badge className="text-[#F83002] dark:text-red-400 font-bold" variant="ghost">{job?.jobType}</Badge>
                 <Badge className="text-[#7209b7] dark:text-purple-400 font-bold" variant="ghost">{job?.salary} LPA</Badge>
             </div>
-            
-            <div className='flex items-center gap-4 mt-4'>
+
+            {/* Buttons Section */}
+            <div className='flex flex-col sm:flex-row items-center gap-4 mt-4'>
                 <Button 
                     onClick={() => navigate(`/description/${job?._id}`)} 
                     variant="outline" 
-                    className="dark:border-gray-600 dark:text-white">
+                    className="dark:border-gray-600 dark:text-white w-full sm:w-auto">
                     Details
                 </Button>
-                <Button className="bg-[#7209b7] dark:bg-purple-600 dark:hover:bg-purple-500">
+                <Button className="w-full sm:w-auto bg-[#7209b7] dark:bg-purple-600 dark:hover:bg-purple-500">
                     Save For Later
                 </Button>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Job;
