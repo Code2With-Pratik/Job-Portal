@@ -10,31 +10,37 @@ const LatestJobCards = ({ job }) => {
     return (
         <div 
             onClick={() => navigate(`/description/${job._id}`)} 
-            className="p-5 rounded-md shadow-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-700 cursor-pointer transition-colors"
+            className="p-4 md:p-5 rounded-md shadow-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-700 
+            cursor-pointer transition-all hover:shadow-2xl w-full max-w-lg mx-auto"
         >
-            <div className='flex items-center gap-2 my-2'>
-                <Button className="p-6" variant="outline" size="icon">
+            {/* Company Logo & Name */}
+            <div className='flex items-center gap-2 md:gap-4 my-2'>
+                <Button className="p-4 md:p-6" variant="outline" size="icon">
                     <Avatar>
                         <AvatarImage src={job?.company?.logo} />
                     </Avatar>
                 </Button>
-                <div>
-                    <h1 className='font-medium text-lg text-black dark:text-white truncate'>{job?.company?.name}</h1>
-                    <p className='text-sm text-gray-500 dark:text-gray-400'>India</p>
+                <div className="truncate">
+                    <h1 className='font-medium text-base md:text-lg text-black dark:text-white truncate'>{job?.company?.name}</h1>
+                    <p className='text-xs md:text-sm text-gray-500 dark:text-gray-400'>India</p>
                 </div>
             </div>
+
+            {/* Job Title & Description */}
             <div>
-                <h1 className="font-bold text-lg my-2 text-black dark:text-white">{job?.title}</h1>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{job?.description}</p>
+                <h1 className="font-bold text-base md:text-lg my-2 text-black dark:text-white truncate">{job?.title}</h1>
+                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 line-clamp-2">{job?.description}</p>
             </div>
-            <div className="flex items-center gap-2 mt-4">
-                <Badge className="text-blue-700 dark:text-blue-400 font-bold" variant="ghost">
+
+            {/* Job Details Badges */}
+            <div className="flex flex-wrap items-center gap-2 mt-4">
+                <Badge className="text-blue-700 dark:text-blue-400 font-bold text-xs md:text-sm px-2 py-1" variant="ghost">
                     {job?.position} Positions
                 </Badge>
-                <Badge className="text-[#F83002] dark:text-red-500 font-bold" variant="ghost">
+                <Badge className="text-[#F83002] dark:text-red-500 font-bold text-xs md:text-sm px-2 py-1" variant="ghost">
                     {job?.jobType}
                 </Badge>
-                <Badge className="text-[#7209b7] dark:text-purple-400 font-bold" variant="ghost">
+                <Badge className="text-[#7209b7] dark:text-purple-400 font-bold text-xs md:text-sm px-2 py-1" variant="ghost">
                     {job?.salary} LPA
                 </Badge>
             </div>
