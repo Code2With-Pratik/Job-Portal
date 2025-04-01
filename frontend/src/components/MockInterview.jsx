@@ -698,40 +698,7 @@ const MockInterview = () => {
     return "Excellent👍!";
   };
 
-  const handleRestart = async () => {
-    const userId = localStorage.getItem("userId"); // Assuming user ID is stored in localStorage
-  
-    if (!userId) {
-      alert("User not authenticated.");
-      return;
-    }
-  
-    try {
-      const response = await fetch("http://localhost:5000/api/interview/save", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId,
-          role,
-          score,
-          totalQuestions: demoQuestions[role].length,
-          answers,
-        }),
-      });
-  
-      const data = await response.json();
-      if (response.ok) {
-        console.log("Interview result saved:", data);
-      } else {
-        console.error("Failed to save interview result:", data.error);
-      }
-    } catch (error) {
-      console.error("Error sending data:", error);
-    }
-  
-    // Reset interview state
+  const handleRestart = () => {
     setRole("");
     setSelectedSkills([]);
     setExperience("");
@@ -743,7 +710,6 @@ const MockInterview = () => {
     setShowResults(false);
     setTimer(120);
   };
-  
 
   return (
     <div>
