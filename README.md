@@ -7,3 +7,4 @@
   </a> 👈 and explore the website.
 </h3>
 
+**![Status](https://img.shields.io/badge/Status-Active-green)**
