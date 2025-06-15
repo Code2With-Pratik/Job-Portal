@@ -6,5 +6,3 @@
     https://job-portal-y5hr.onrender.com/
   </a> 👈 and explore the website.
 </h3>
-
-**![Status](https://img.shields.io/badge/Status-Active-green)**
